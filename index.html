@@ -482,6 +482,34 @@
     .edu-item .date { color: var(--text-muted); font-size: 0.88rem; }
     .edu-item .meta { color: var(--text-soft); font-size: 0.92rem; }
 
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .cert-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .cert-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+    .cert-meta { color: var(--text-muted); font-size: 0.85rem; }
+    .cert-credly-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.92rem;
+    }
+
     /* Contact */
     .contact-card {
       background: var(--surface);
@@ -579,7 +607,7 @@
         <!-- TODO: Update name/headline -->
         <h1>I'm Erhan — a big data engineer who also <em>plays guitar</em> and a lot of <em>chess</em>.</h1>
         <p class="hero-tag">
-          I build streaming systems that actually run on Mondays. Off the clock, I'm probably working out chord charts for akormatik or losing another chess game.
+          I build streaming systems — the kind that have to be both fast and right. Off the clock, I'm probably working out chord charts for akormatik or losing another chess game.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Get in touch</a>
@@ -600,7 +628,7 @@
     <h2>A little about me</h2>
     <div class="about-grid">
       <p>
-        I'm a Big Data Engineer at Bentego, currently on the Vodafone engagement. Most of what I do these days is streaming — pipelines, alarms, the parts of the platform that have to be both fast and correct. Before this I was on the Türk Telekom team, doing more traditional data engineering work.
+        I'm a big data engineer working on streaming systems and the platforms around them. I started out in software development — Java, ETL, complex event processing — and gradually moved deeper into data engineering. These days I split my time between batch and streaming work at telco scale.
       </p>
       <p>
         I gravitate toward problems where the data is messy, the latency matters, and the answer still has to be right. Production streaming is full of those — and I enjoy chipping away at them.
@@ -618,16 +646,43 @@
       <div class="exp-content">
         <h3>Big Data Engineer</h3>
         <div class="company">Bentego · Vodafone</div>
-        <p>Working on streaming systems — pipelines, alarms, and the parts of the platform that have to be both fast and correct. Currently rebuilding the alarm setup as Structured Streaming jobs.</p>
+        <p>Working on the network-analytics data platform — both batch ETL pipelines and Spark Structured Streaming jobs reading from Kafka. Recently rebuilt the alarm system as Structured Streaming jobs that are simpler to reason about and easier to extend. Day-to-day mixes new pipelines, tuning existing ones, and keeping the Airflow orchestration healthy.</p>
       </div>
     </div>
 
     <div class="exp-item">
-      <div class="exp-date">Dec 2021 — Feb 2024</div>
+      <div class="exp-date">Dec 2020 — Feb 2024</div>
       <div class="exp-content">
-        <h3>Data Engineer</h3>
+        <h3>Software Developer</h3>
         <div class="company">Bentego · Türk Telekom</div>
-        <p>Day-to-day data engineering for the Türk Telekom team — pipelines, transformations, and the plumbing behind a large telco data platform.</p>
+        <p>Worked on Complex Event Processing with EVAM — ingesting events from Kafka, RabbitMQ, GoldenGate, and HTTP/SQL listeners, then enriching them with reference data to power real-time reports, SMS push, and downstream web-service triggers. On the side I built ETL/ELT pipelines, ran UC4 orchestration, wrote Java and Bash tooling, and stepped in as Scrum Master for the team.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jul 2019 — Now</div>
+      <div class="exp-content">
+        <h3>Writer</h3>
+        <div class="company">Medium</div>
+        <p>Writing posts about engineering, the tools I'm learning, and side projects — mostly in Turkish. Started in 2019 as a way to think out loud, and still update it when something interesting comes up.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jun 2019 — Aug 2019</div>
+      <div class="exp-content">
+        <h3>Intern</h3>
+        <div class="company">Ulak Haberleşme</div>
+        <p>Spent the summer learning the 5G core network and writing JavaScript / C++ tooling around it, with MongoDB on the side and Mocha for tests. <a href="https://medium.com/@ozgenerhan/5g-%C3%A7ekirdek-a%C4%9F%C4%B1-ve-genel-mimarisi-1f82a2db5463" target="_blank" rel="noopener">Wrote it up afterwards →</a></p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jul 2017 — Sep 2017</div>
+      <div class="exp-content">
+        <h3>Intern</h3>
+        <div class="company">Abalıoğlu Holding</div>
+        <p>Built a barcode-scanner application in C# with PL/SQL on the backend. First taste of writing software for an actual problem someone needed solved.</p>
       </div>
     </div>
   </section>
@@ -642,35 +697,39 @@
         <h3>Languages</h3>
         <ul>
           <li>Python</li>
+          <li>Java</li>
           <li>SQL</li>
-          <li>Scala</li>
           <li>Bash</li>
         </ul>
       </div>
       <div class="stack-card">
-        <h3>Data & Streaming</h3>
+        <h3>Big Data</h3>
+        <ul>
+          <li>Apache Spark</li>
+          <li>Spark Structured Streaming</li>
+          <li>Apache Kafka</li>
+          <li>Hadoop</li>
+          <li>Hive</li>
+          <li>HBase</li>
+          <li>Impala</li>
+          <li>Phoenix</li>
+          <li>Sqoop</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h3>Orchestration & Tools</h3>
         <ul>
           <li>Apache Airflow</li>
-          <li>Apache Spark</li>
-          <li>Kafka</li>
-          <li>Hive</li>
+          <li>UC4</li>
+          <li>Linux</li>
+          <li>Git</li>
         </ul>
       </div>
       <div class="stack-card">
         <h3>Databases</h3>
         <ul>
-          <li>PostgreSQL</li>
+          <li>Oracle</li>
           <li>MongoDB</li>
-          <li>Redis</li>
-        </ul>
-      </div>
-      <div class="stack-card">
-        <h3>Cloud & DevOps</h3>
-        <ul>
-          <li>AWS</li>
-          <li>GCP</li>
-          <li>Docker</li>
-          <li>Git</li>
         </ul>
       </div>
     </div>
@@ -714,8 +773,35 @@
         <div class="meta">B.Sc., Computer Engineering</div>
       </div>
       <!-- TODO: Verify graduation year range -->
-      <div class="date">2017 — 2021</div>
+      <div class="date">2016 — 2020</div>
     </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications" class="s">
+    <p class="section-label">Certifications</p>
+    <h2>Credentials</h2>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h3>Get Started with Pub/Sub Skill Badge</h3>
+        <div class="cert-meta">Google Cloud · Dec 2024</div>
+      </div>
+      <div class="cert-card">
+        <h3>Cloudera Technical Professional (CTP)</h3>
+        <div class="cert-meta">Cloudera · Nov 2024</div>
+      </div>
+      <div class="cert-card">
+        <h3>WHAT A PWNLY DAY — Cybersecurity Course</h3>
+        <div class="cert-meta">canyoupwn.me · Feb 2017</div>
+      </div>
+      <div class="cert-card">
+        <h3>DevFest İstanbul</h3>
+        <div class="cert-meta">Google Developers Group · Nov 2016</div>
+      </div>
+    </div>
+
+    <a href="https://www.credly.com/users/erhan-ozgen/badges" target="_blank" rel="noopener" class="cert-credly-link">View badges on Credly →</a>
   </section>
 
   <!-- ============ CONTACT ============ -->
@@ -729,6 +815,7 @@
         <a href="mailto:erhan.ozgen@bentego.com" class="btn btn-primary">✉ Email</a>
         <a href="https://www.linkedin.com/in/erhanozgen" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
         <a href="https://github.com/erhanozgen" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        <a href="https://medium.com/@ozgenerhan" target="_blank" rel="noopener" class="btn btn-ghost">Medium</a>
       </div>
     </div>
   </section>
