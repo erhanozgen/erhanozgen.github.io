@@ -402,6 +402,10 @@
       border-bottom: 1px solid var(--border);
     }
     .exp-item:last-child { border-bottom: none; }
+    .exp-item.exp-sub {
+      padding-left: 28px;
+      border-left: 2px solid var(--border);
+    }
     .exp-date {
       color: var(--text-muted);
       font-size: 0.88rem;
@@ -593,6 +597,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { width: 230px; height: 260px; order: -1; }
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      .exp-item.exp-sub { padding-left: 16px; }
       .exp-date { order: 2; }
     }
 
@@ -682,7 +687,7 @@
       </div>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item exp-sub">
       <div class="exp-date">Feb 2024 — Now</div>
       <div class="exp-content">
         <h3>Senior Big Data Engineer (Consultant)</h3>
@@ -692,19 +697,19 @@
         <ul class="project-list">
           <li><strong>DDS (Digital Data Store)</strong> — Active streaming platform handling the data flow for all Vodafone customers (prepaid, postpaid, individual, corporate). Built on Continuous Airflow.</li>
           <li><strong>Polaris</strong> — Source database upgrade from Kenan to Vibe. Owned the work end-to-end (analysis → design → development → babysitting), adapting affected DAGs and scripts to column changes and shifts in how data is ingested.</li>
-          <li><strong>MCCM Source Redesign</strong> — Near-real-time delivery of postpaid customer details (GSM, customer ID, tariff, product info) to the business unit.</li>
-          <li><strong>Siebel Upgrade</strong> — Source database upgrade (IP15 → IP25) for prepaid customers. Analyzed downstream impact of table and column changes; rollout still in progress.</li>
+          <li><strong>MCCM Source Redesign</strong> — Near-real-time delivery of postpaid customer information needed by the business unit.</li>
+          <li><strong>Siebel Upgrade</strong> — Source database upgrade (IP15 → IP25) for postpaid customers. Analyzed downstream impact of table and column changes; rollout still in progress.</li>
           <li><strong>Lakehouse Upgrade</strong> — Adapting workloads to the new environment as part of the platform transition. Learning the new tooling and converting jobs to Spark 3.</li>
         </ul>
       </div>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item exp-sub">
       <div class="exp-date">Dec 2020 — Feb 2024</div>
       <div class="exp-content">
-        <h3>Software Developer (Consultant)</h3>
+        <h3>Software Developer &amp; Data Engineer (Consultant)</h3>
         <div class="company">Bentego · Türk Telekom</div>
-        <p>Worked on Complex Event Processing with EVAM — ingesting events from Kafka, RabbitMQ, GoldenGate, and HTTP/SQL listeners, then enriching them with reference data to power real-time reports, SMS push, and downstream web-service triggers. On the side I built ETL/ELT pipelines, ran UC4 orchestration, wrote Java and Bash tooling, and stepped in as Scrum Master for the team.</p>
+        <p>Worked on Complex Event Processing with EVAM — ingesting events from Kafka, RabbitMQ, GoldenGate, and HTTP/SQL listeners, enriching them with reference data, and triggering real-time reports, SMS push, and a set of Java web services we developed in-house to handle the downstream integrations. On the side I built ETL/ELT pipelines, ran UC4 orchestration, wrote Java and Bash tooling, and stepped in as Scrum Master for the team.</p>
         <p class="project-heading">Selected work:</p>
         <ul class="project-list">
           <li><strong>EVAM 4 → 5 upgrade</strong> — Migrated the existing CEP setup to a new major version. First project I owned end-to-end.</li>
@@ -824,10 +829,9 @@
     <div class="edu-item">
       <div>
         <h3>Pamukkale University</h3>
-        <div class="meta">B.Sc., Computer Engineering</div>
+        <div class="meta">Computer Engineering</div>
       </div>
-      <!-- TODO: Verify graduation year range -->
-      <div class="date">2016 — 2020</div>
+      <div class="date">2015 — 2020</div>
     </div>
   </section>
 
