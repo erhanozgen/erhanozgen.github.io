@@ -422,13 +422,13 @@
       bottom: auto;
       height: 40px;
     }
-    /* Horizontal dashed branch from spine to each sub item's title */
+    /* Horizontal dashed branch from spine toward each sub item — stops short of the date text */
     .exp-subgroup > .exp-item::after {
       content: '';
       position: absolute;
       left: -26px;
       top: 38px;
-      width: 26px;
+      width: 16px;
       border-top: 2px dashed var(--border);
     }
     .exp-subgroup > .exp-item:last-child {
@@ -443,7 +443,7 @@
       content: '';
       position: absolute;
       left: 10px;
-      top: 38px;
+      top: 50px;
       bottom: 0;
       border-left: 2px dashed var(--border);
     }
@@ -644,8 +644,9 @@
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
       .exp-subgroup { padding-left: 22px; }
       .exp-subgroup > .exp-item::before { left: -18px; }
-      .exp-subgroup > .exp-item::after { left: -18px; width: 18px; }
-      .exp-item.exp-parent::before { left: 4px; top: 24px; }
+      .exp-subgroup > .exp-item::after { left: -18px; width: 12px; }
+      .exp-item.exp-parent { padding-left: 22px; }
+      .exp-item.exp-parent::before { left: 4px; top: 38px; }
       .exp-date { order: 2; }
     }
 
