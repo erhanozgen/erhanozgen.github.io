@@ -403,18 +403,33 @@
     }
     .exp-item:last-child { border-bottom: none; }
     .exp-subgroup {
-      position: relative;
-      padding-left: 32px;
+      padding-left: 36px;
     }
-    .exp-subgroup::before {
+    .exp-subgroup > .exp-item {
+      position: relative;
+    }
+    /* Vertical dashed spine for each sub item — visually continuous across both */
+    .exp-subgroup > .exp-item::before {
       content: '';
       position: absolute;
-      left: 8px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: var(--border);
-      border-radius: 2px;
+      left: -26px;
+      top: 0;
+      bottom: 0;
+      border-left: 2px dashed var(--border);
+    }
+    /* Last sub item: spine stops at the branch position (no dangling line) */
+    .exp-subgroup > .exp-item:last-child::before {
+      bottom: auto;
+      height: 40px;
+    }
+    /* Horizontal dashed branch from spine to each sub item's title */
+    .exp-subgroup > .exp-item::after {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 38px;
+      width: 26px;
+      border-top: 2px dashed var(--border);
     }
     .exp-subgroup > .exp-item:last-child {
       border-bottom: 1px solid var(--border);
@@ -610,8 +625,9 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { width: 230px; height: 260px; order: -1; }
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
-      .exp-subgroup { padding-left: 18px; }
-      .exp-subgroup::before { left: 4px; }
+      .exp-subgroup { padding-left: 22px; }
+      .exp-subgroup > .exp-item::before { left: -18px; }
+      .exp-subgroup > .exp-item::after { left: -18px; width: 18px; }
       .exp-date { order: 2; }
     }
 
