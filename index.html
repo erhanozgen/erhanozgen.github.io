@@ -174,15 +174,24 @@
     .theme-toggle:hover { background: var(--accent-soft); border-color: var(--accent); transform: rotate(-12deg); }
 
     /* =========================================================
-       HERO — bigger type, slower blobs, more breathing room
+       HERO — full viewport, content centered, blobs span full width
        ========================================================= */
     .hero {
       position: relative;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 120px 32px 100px;
+      width: 100%;
+      min-height: calc(100vh - 73px);
       overflow: hidden;
       z-index: 2;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 32px;
+      position: relative;
+      z-index: 1;
     }
 
     .blobs {
@@ -716,7 +725,8 @@
     @media (max-width: 900px) {
       .nav-inner { padding: 14px 22px; gap: 18px; }
       .nav-links { gap: 22px; }
-      .hero { padding: 80px 24px 70px; }
+      .hero { min-height: calc(100vh - 64px); }
+      .hero-inner { padding: 60px 24px; }
       .hero-grid { grid-template-columns: 1fr; gap: 50px; }
       .hero-photo-wrap { width: 260px; height: 290px; order: -1; }
       section.s { padding: 72px 24px; }
@@ -733,7 +743,8 @@
       .nav-inner { padding: 12px 18px; gap: 12px; }
       .nav-links { gap: 16px; }
       .nav-links a { font-size: 0.85rem; }
-      .hero { padding: 56px 18px 48px; }
+      .hero { min-height: calc(100vh - 56px); }
+      .hero-inner { padding: 40px 18px; }
       section.s { padding: 56px 18px; }
       .contact-card { padding: 40px 22px; }
       .cert-grid { grid-template-columns: 1fr; }
@@ -770,20 +781,22 @@
       <div class="blob b3"></div>
     </div>
 
-    <div class="hero-grid">
-      <div class="hero-text">
-        <h1>I'm Erhan — a big data engineer who also <em>plays guitar</em> and a lot of <em>chess</em>.</h1>
-        <p class="hero-tag">
-          I work in big data, and I'm always learning what comes next. Off the clock, I'm probably working out chord charts for akormatik or losing another chess game.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#beyond" class="btn btn-ghost">See what I do for fun ↓</a>
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>I'm Erhan — a big data engineer who also <em>plays guitar</em> and a lot of <em>chess</em>.</h1>
+          <p class="hero-tag">
+            I work in big data, and I'm always learning what comes next. Off the clock, I'm probably working out chord charts for akormatik or losing another chess game.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get in touch</a>
+            <a href="#beyond" class="btn btn-ghost">See what I do for fun ↓</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-photo-wrap">
-        <img src="profile.jpg" alt="Erhan" onerror="this.style.background='var(--bg-soft)'; this.alt='Add profile.jpg'" />
+        <div class="hero-photo-wrap">
+          <img src="profile.jpg" alt="Erhan" onerror="this.style.background='var(--bg-soft)'; this.alt='Add profile.jpg'" />
+        </div>
       </div>
     </div>
   </section>
