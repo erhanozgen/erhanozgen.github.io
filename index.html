@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- TODO: Update name/title -->
   <title>Erhan Özgen — Big Data Engineer</title>
-  <meta name="description" content="Big Data Engineer at Bentego, currently on the Vodafone engagement. Streaming systems by day, guitar and chess after hours." />
+  <meta name="description" content="Big data engineer based in Istanbul. Designing data systems that have to keep up with real volume. Guitar and chess after hours." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -341,12 +344,23 @@
     p { color: var(--text-soft); }
 
     /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+    .about-content {
+      max-width: 720px;
     }
-    .about-grid p { font-size: 1.02rem; margin-bottom: 14px; }
+    .about-content p {
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      color: var(--text-soft);
+    }
+    .about-content p:first-of-type::first-letter {
+      font-family: 'Fraunces', serif;
+      font-size: 3.4rem;
+      font-weight: 600;
+      float: left;
+      line-height: 0.9;
+      padding: 8px 14px 0 0;
+      color: var(--accent);
+    }
 
     /* Stack */
     .stack-grid {
@@ -485,7 +499,7 @@
     /* Certifications */
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
     .cert-card {
@@ -557,7 +571,6 @@
     @media (max-width: 820px) {
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { width: 230px; height: 260px; order: -1; }
-      .about-grid { grid-template-columns: 1fr; gap: 12px; }
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
       .exp-date { order: 2; }
     }
@@ -569,6 +582,7 @@
       .hero { padding: 60px 18px 50px; }
       section.s { padding: 48px 18px; }
       .contact-card { padding: 32px 20px; }
+      .cert-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -581,7 +595,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#stack">Stack</a></li>
+        <li><a href="#stack">Toolkit</a></li>
         <li><a href="#beyond">Beyond</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
@@ -603,11 +617,9 @@
 
     <div class="hero-grid">
       <div class="hero-text">
-        <p class="hero-greeting">Hi there 👋</p>
-        <!-- TODO: Update name/headline -->
         <h1>I'm Erhan — a big data engineer who also <em>plays guitar</em> and a lot of <em>chess</em>.</h1>
         <p class="hero-tag">
-          I build streaming systems — the kind that have to be both fast and right. Off the clock, I'm probably working out chord charts for akormatik or losing another chess game.
+          I work in big data, and I'm always learning what comes next. Off the clock, I'm probably working out chord charts for akormatik or losing another chess game.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Get in touch</a>
@@ -625,13 +637,12 @@
   <!-- ============ ABOUT ============ -->
   <section id="about" class="s">
     <p class="section-label">About</p>
-    <h2>A little about me</h2>
-    <div class="about-grid">
+    <div class="about-content">
       <p>
-        I'm a big data engineer working on streaming systems and the platforms around them. I started out in software development — Java, ETL, complex event processing — and gradually moved deeper into data engineering. These days I split my time between batch and streaming work at telco scale.
+        With five years in big data engineering, I focus on designing and operating data systems that have to keep pace with real volume. Based in Istanbul, I enjoy the architectural side of the work — figuring out how the moving parts fit together at scale.
       </p>
       <p>
-        I gravitate toward problems where the data is messy, the latency matters, and the answer still has to be right. Production streaming is full of those — and I enjoy chipping away at them.
+        Whether it's real-time streaming with Spark and Kafka, complex event processing, or batch ETL pipelines, I focus on building infrastructure that's reliable, observable, and pleasant to maintain. I'm curious about where the field is heading, and I try to learn whatever helps me build a little better.
       </p>
     </div>
   </section>
@@ -644,16 +655,16 @@
     <div class="exp-item">
       <div class="exp-date">Feb 2024 — Now</div>
       <div class="exp-content">
-        <h3>Big Data Engineer</h3>
+        <h3>Big Data Engineer (Consultant)</h3>
         <div class="company">Bentego · Vodafone</div>
-        <p>Working on the network-analytics data platform — both batch ETL pipelines and Spark Structured Streaming jobs reading from Kafka. Recently rebuilt the alarm system as Structured Streaming jobs that are simpler to reason about and easier to extend. Day-to-day mixes new pipelines, tuning existing ones, and keeping the Airflow orchestration healthy.</p>
+        <p>Working on the network-analytics data platform — designing and maintaining streaming pipelines built on Spark Structured Streaming and Kafka, alongside batch ETL/ELT jobs that feed the wider analytics surface. Most recently rebuilt the alarm system into a Structured Streaming setup that's simpler to reason about and faster to extend. Day-to-day mixes new pipeline development, performance tuning across memory and throughput, and the Airflow orchestration that holds the platform together. Also involved in migration work and test-environment setup as the stack moves onto newer Hadoop infrastructure.</p>
       </div>
     </div>
 
     <div class="exp-item">
       <div class="exp-date">Dec 2020 — Feb 2024</div>
       <div class="exp-content">
-        <h3>Software Developer</h3>
+        <h3>Software Developer (Consultant)</h3>
         <div class="company">Bentego · Türk Telekom</div>
         <p>Worked on Complex Event Processing with EVAM — ingesting events from Kafka, RabbitMQ, GoldenGate, and HTTP/SQL listeners, then enriching them with reference data to power real-time reports, SMS push, and downstream web-service triggers. On the side I built ETL/ELT pipelines, ran UC4 orchestration, wrote Java and Bash tooling, and stepped in as Scrum Master for the team.</p>
       </div>
@@ -689,8 +700,7 @@
 
   <!-- ============ STACK ============ -->
   <section id="stack" class="s">
-    <p class="section-label">Stack</p>
-    <h2>Tools I reach for</h2>
+    <p class="section-label">Toolkit</p>
 
     <div class="stack-grid">
       <div class="stack-card">
@@ -757,7 +767,7 @@
       <div class="beyond-card c3">
         <span class="beyond-icon">♞</span>
         <h3>Chess</h3>
-        <p>Mostly bullet, occasionally rapid. Still working on not blundering my queen on move 10.</p>
+        <p>A blitz player at heart — usually 5+0 or 5+3. With white I trust the Spanish; with black, the Berlin or a Sicilian when I'm in the mood for a sharper game.</p>
       </div>
     </div>
   </section>
@@ -765,7 +775,6 @@
   <!-- ============ EDUCATION ============ -->
   <section id="education" class="s">
     <p class="section-label">Education</p>
-    <h2>Where I studied</h2>
 
     <div class="edu-item">
       <div>
@@ -780,7 +789,6 @@
   <!-- ============ CERTIFICATIONS ============ -->
   <section id="certifications" class="s">
     <p class="section-label">Certifications</p>
-    <h2>Credentials</h2>
 
     <div class="cert-grid">
       <div class="cert-card">
