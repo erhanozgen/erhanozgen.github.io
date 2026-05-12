@@ -434,6 +434,23 @@
     .exp-subgroup > .exp-item:last-child {
       border-bottom: 1px solid var(--border);
     }
+    /* Bentego parent item: no bottom separator, dashed spine extends down toward subgroup */
+    .exp-item.exp-parent {
+      position: relative;
+      border-bottom: none;
+    }
+    .exp-item.exp-parent::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 38px;
+      bottom: 0;
+      border-left: 2px dashed var(--border);
+    }
+    /* Drop the horizontal separator between sub-engagements (Vodafone / TT) */
+    .exp-subgroup > .exp-item:not(:last-child) {
+      border-bottom: none;
+    }
     .exp-date {
       color: var(--text-muted);
       font-size: 0.88rem;
@@ -628,6 +645,7 @@
       .exp-subgroup { padding-left: 22px; }
       .exp-subgroup > .exp-item::before { left: -18px; }
       .exp-subgroup > .exp-item::after { left: -18px; width: 18px; }
+      .exp-item.exp-parent::before { left: 4px; top: 24px; }
       .exp-date { order: 2; }
     }
 
@@ -708,7 +726,7 @@
     <p class="section-label">Work</p>
     <h2>Experience</h2>
 
-    <div class="exp-item">
+    <div class="exp-item exp-parent">
       <div class="exp-date">Dec 2020 — Now</div>
       <div class="exp-content">
         <h3>Senior Big Data Engineer</h3>
