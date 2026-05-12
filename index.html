@@ -402,9 +402,22 @@
       border-bottom: 1px solid var(--border);
     }
     .exp-item:last-child { border-bottom: none; }
-    .exp-item.exp-sub {
-      padding-left: 28px;
-      border-left: 2px solid var(--border);
+    .exp-subgroup {
+      position: relative;
+      padding-left: 32px;
+    }
+    .exp-subgroup::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .exp-subgroup > .exp-item:last-child {
+      border-bottom: 1px solid var(--border);
     }
     .exp-date {
       color: var(--text-muted);
@@ -597,7 +610,8 @@
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { width: 230px; height: 260px; order: -1; }
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
-      .exp-item.exp-sub { padding-left: 16px; }
+      .exp-subgroup { padding-left: 18px; }
+      .exp-subgroup::before { left: 4px; }
       .exp-date { order: 2; }
     }
 
@@ -687,7 +701,8 @@
       </div>
     </div>
 
-    <div class="exp-item exp-sub">
+    <div class="exp-subgroup">
+    <div class="exp-item">
       <div class="exp-date">Feb 2024 — Now</div>
       <div class="exp-content">
         <h3>Senior Big Data Engineer (Consultant)</h3>
@@ -704,7 +719,7 @@
       </div>
     </div>
 
-    <div class="exp-item exp-sub">
+    <div class="exp-item">
       <div class="exp-date">Dec 2020 — Feb 2024</div>
       <div class="exp-content">
         <h3>Software Developer &amp; Data Engineer (Consultant)</h3>
@@ -717,6 +732,7 @@
           <li><strong>DevOps duties</strong> — Application restarts, log monitoring, on-call rotations, overnight deployments. Also handled SSL certificate setup for the web services.</li>
         </ul>
       </div>
+    </div>
     </div>
 
     <div class="exp-item">
