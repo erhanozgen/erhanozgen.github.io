@@ -1,47 +1,61 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- TODO: Buradaki ismi ve title'ı kendinkiyle değiştir -->
-  <title>Erhan Özgen — Data Engineer</title>
-  <meta name="description" content="Erhan Özgen — Data Engineer, Istanbul. Apache Airflow, Spark, ve büyük veri sistemleri." />
+  <!-- TODO: Update name/title -->
+  <title>Erhan Özgen — Data Engineer & Guitar Player</title>
+  <meta name="description" content="Data engineer by day, guitar player and chess enthusiast by night." />
 
-  <!-- Google Fonts: Inter -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ============================
-       TEMA RENKLERİ (CSS Variables)
-       ============================ */
+    /* =========================================================
+       THEME — light default, dark via [data-theme="dark"]
+       ========================================================= */
     :root {
-      --bg: #fafaf9;
+      --bg: #faf7f2;
+      --bg-soft: #f3ede3;
       --surface: #ffffff;
-      --text: #1a1a1a;
-      --text-muted: #6b6b6b;
-      --border: #e5e5e5;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+      --text: #1c1917;
+      --text-soft: #57534e;
+      --text-muted: #8a8378;
+      --border: #e7e1d6;
+      --accent: #c2410c;        /* warm terracotta */
+      --accent-soft: #fef3ec;
+      --accent-2: #475569;      /* slate */
+      --blob-1: #fed7aa;
+      --blob-2: #bae6fd;
+      --blob-3: #fbcfe8;
+      --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04);
+      --shadow-md: 0 4px 16px rgba(28, 25, 23, 0.06);
     }
 
     [data-theme="dark"] {
-      --bg: #0f0f10;
-      --surface: #18181b;
-      --text: #fafafa;
-      --text-muted: #a1a1aa;
-      --border: #27272a;
-      --accent: #60a5fa;
-      --accent-soft: #1e3a8a;
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+      --bg: #14110d;
+      --bg-soft: #1c1812;
+      --surface: #1f1a14;
+      --text: #faf7f2;
+      --text-soft: #c7c1b4;
+      --text-muted: #8a8378;
+      --border: #2a241c;
+      --accent: #fb923c;
+      --accent-soft: #2a1b12;
+      --accent-2: #94a3b8;
+      --blob-1: #7c2d12;
+      --blob-2: #0c4a6e;
+      --blob-3: #831843;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 
-    /* ============================
-       RESET & GENEL
-       ============================ */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* =========================================================
+       RESET
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
@@ -49,317 +63,498 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      transition: background 0.2s, color 0.2s;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    /* ============================
-       NAVIGATION (Sticky)
-       ============================ */
+    /* =========================================================
+       NAV
+       ========================================================= */
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: var(--surface);
+      z-index: 50;
+      background: rgba(250, 247, 242, 0.75);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
     }
+    [data-theme="dark"] nav { background: rgba(20, 17, 13, 0.7); }
 
     .nav-inner {
-      max-width: 900px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 16px 28px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 24px;
     }
 
     .nav-logo {
-      font-weight: 700;
-      font-size: 1.05rem;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
       color: var(--text);
+      letter-spacing: -0.01em;
     }
+    .nav-logo span { color: var(--accent); }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 28px;
       align-items: center;
       list-style: none;
       flex-wrap: wrap;
     }
 
     .nav-links a {
-      color: var(--text-muted);
+      color: var(--text-soft);
       font-size: 0.92rem;
       font-weight: 500;
+      position: relative;
+      padding: 4px 0;
       transition: color 0.15s;
     }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
 
     .theme-toggle {
-      background: none;
+      background: transparent;
       border: 1px solid var(--border);
       color: var(--text);
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 1.05rem;
+      font-size: 1rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.15s, border-color 0.15s;
+      transition: background 0.15s, transform 0.15s;
     }
-    .theme-toggle:hover { background: var(--accent-soft); }
+    .theme-toggle:hover { background: var(--accent-soft); transform: translateY(-1px); }
 
-    /* ============================
-       LAYOUT
-       ============================ */
-    main {
-      max-width: 900px;
+    /* =========================================================
+       HERO — asymmetric layout with animated blob background
+       ========================================================= */
+    .hero {
+      position: relative;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 100px 28px 80px;
+      overflow: hidden;
     }
 
-    section { margin-bottom: 64px; scroll-margin-top: 80px; }
+    /* Animated soft gradient blobs */
+    .blobs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.55;
+      will-change: transform;
+    }
+    .blob.b1 {
+      width: 380px; height: 380px;
+      background: var(--blob-1);
+      top: -60px; left: -40px;
+      animation: drift 18s ease-in-out infinite;
+    }
+    .blob.b2 {
+      width: 320px; height: 320px;
+      background: var(--blob-2);
+      top: 60px; right: -80px;
+      animation: drift 22s ease-in-out infinite reverse;
+    }
+    .blob.b3 {
+      width: 260px; height: 260px;
+      background: var(--blob-3);
+      bottom: -40px; left: 35%;
+      animation: drift 26s ease-in-out infinite;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.08); }
+      66% { transform: translate(-25px, 25px) scale(0.95); }
+    }
+    [data-theme="dark"] .blob { opacity: 0.4; }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-greeting {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 22px;
+      color: var(--text);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-tag {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-size: 0.93rem;
+      font-weight: 500;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover { background: var(--surface); border-color: var(--text-soft); transform: translateY(-2px); }
+
+    /* Hero photo with offset color shape behind it */
+    .hero-photo-wrap {
+      position: relative;
+      justify-self: center;
+      width: 280px;
+      height: 320px;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      border-radius: 24px;
+      transform: rotate(-4deg) translate(14px, 14px);
+      transition: transform 0.3s ease;
+    }
+    .hero-photo-wrap:hover::before {
+      transform: rotate(-6deg) translate(18px, 18px);
+    }
+    .hero-photo-wrap img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 6px solid var(--bg);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* =========================================================
+       SECTIONS
+       ========================================================= */
+    main { position: relative; z-index: 1; }
+
+    section.s {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 64px 28px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
     h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      letter-spacing: -0.015em;
+      margin-bottom: 28px;
+      color: var(--text);
     }
 
     h3 {
-      font-size: 1.05rem;
-      margin-bottom: 4px;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--text);
     }
 
-    p { color: var(--text); margin-bottom: 12px; }
-    p:last-child { margin-bottom: 0; }
+    p { color: var(--text-soft); }
 
-    /* ============================
-       HERO
-       ============================ */
-    .hero {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 72px;
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
     }
+    .about-grid p { font-size: 1.02rem; margin-bottom: 14px; }
 
-    .hero img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--border);
-      flex-shrink: 0;
-      background: var(--surface);
-    }
-
-    .hero-text h1 {
-      font-size: 1.85rem;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-
-    .hero-text .title {
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .hero-text .location {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-bottom: 14px;
-    }
-
-    .hero-text p { font-size: 0.98rem; }
-
-    /* ============================
-       SKILLS / STACK
-       ============================ */
+    /* Stack */
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
     }
-
     .stack-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-      box-shadow: var(--shadow);
+      border-radius: 14px;
+      padding: 22px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
-
+    .stack-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
     .stack-card h3 {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-
     .stack-card ul {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
-
     .stack-card li {
       font-size: 0.85rem;
-      background: var(--accent-soft);
+      background: var(--bg-soft);
       color: var(--text);
       padding: 4px 10px;
       border-radius: 6px;
+      font-weight: 500;
     }
 
-    [data-theme="dark"] .stack-card li {
-      color: #dbeafe;
-    }
-
-    /* ============================
-       EXPERIENCE
-       ============================ */
-    .experience-item {
-      padding: 20px 0;
+    /* Experience */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 28px;
+      padding: 24px 0;
       border-bottom: 1px solid var(--border);
     }
-    .experience-item:last-child { border-bottom: none; }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .exp-content h3 { margin-bottom: 2px; }
+    .exp-content .company {
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .exp-content p { font-size: 0.96rem; }
 
-    .experience-header {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
+    /* Beyond — hobbies */
+    .beyond-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .beyond-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .beyond-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .beyond-card::after {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.4;
+      top: -30px;
+      right: -30px;
+      transition: opacity 0.3s;
+    }
+    .beyond-card:hover::after { opacity: 0.7; }
+    .beyond-card.c1::after { background: var(--blob-1); }
+    .beyond-card.c2::after { background: var(--blob-2); }
+    .beyond-card.c3::after { background: var(--blob-3); }
+
+    .beyond-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .beyond-card h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
       margin-bottom: 8px;
     }
-
-    .experience-header .role-company {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .experience-header .role-company span {
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    .experience-header .date {
-      color: var(--text-muted);
+    .beyond-card p { font-size: 0.94rem; color: var(--text-soft); }
+    .beyond-card a {
+      display: inline-block;
+      margin-top: 10px;
       font-size: 0.88rem;
-      white-space: nowrap;
+      font-weight: 500;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
     }
+    .beyond-card a:hover { border-color: transparent; }
 
-    .experience-item p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    /* ============================
-       EDUCATION & CERTIFICATIONS
-       ============================ */
-    .education-item, .cert-item {
-      padding: 14px 0;
+    /* Education & Certs */
+    .edu-item {
+      padding: 16px 0;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
-    .education-item:last-child, .cert-item:last-child { border-bottom: none; }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-item .date { color: var(--text-muted); font-size: 0.88rem; }
+    .edu-item .meta { color: var(--text-soft); font-size: 0.92rem; }
 
-    .education-item .date, .cert-item .date {
-      color: var(--text-muted);
-      font-size: 0.88rem;
+    /* Contact */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-
-    /* ============================
-       CONTACT
-       ============================ */
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, var(--blob-1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, var(--blob-2) 0%, transparent 50%);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .contact-card > * { position: relative; }
+    .contact-card h2 { margin-bottom: 10px; }
+    .contact-card p { font-size: 1.02rem; margin-bottom: 22px; }
     .contact-buttons {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .contact-buttons a {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 10px 18px;
-      border-radius: 8px;
-      color: var(--text);
-      font-weight: 500;
-      font-size: 0.92rem;
-      transition: background 0.15s, border-color 0.15s;
-    }
-    .contact-buttons a:hover {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* ============================
-       FOOTER
-       ============================ */
+    /* Footer */
     footer {
-      max-width: 900px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 32px 28px;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
       border-top: 1px solid var(--border);
+      margin-top: 40px;
     }
 
-    /* ============================
-       MOBILE
-       ============================ */
-    @media (max-width: 640px) {
-      .nav-inner { padding: 12px 18px; gap: 12px; }
-      .nav-logo { font-size: 0.95rem; }
-      .nav-links { gap: 14px; }
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 820px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-wrap { width: 230px; height: 260px; order: -1; }
+      .about-grid { grid-template-columns: 1fr; gap: 12px; }
+      .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      .exp-date { order: 2; }
+    }
+
+    @media (max-width: 540px) {
+      .nav-inner { padding: 14px 18px; gap: 10px; }
+      .nav-links { gap: 16px; }
       .nav-links a { font-size: 0.85rem; }
-
-      main { padding: 32px 18px 60px; }
-
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-      }
-      .hero img { width: 120px; height: 120px; }
-      .hero-text h1 { font-size: 1.6rem; }
-
-      .experience-header { flex-direction: column; gap: 4px; }
-      .experience-header .date { font-size: 0.82rem; }
+      .hero { padding: 60px 18px 50px; }
+      section.s { padding: 48px 18px; }
+      .contact-card { padding: 32px 20px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- ============================
-       NAVIGATION
-       ============================ -->
+  <!-- ============ NAV ============ -->
   <nav>
     <div class="nav-inner">
-      <!-- TODO: İsmini güncelle -->
-      <a href="#home" class="nav-logo">Erhan Özgen</a>
-
+      <a href="#home" class="nav-logo">Erhan<span>.</span></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#stack">Stack</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#beyond">Beyond</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
@@ -370,164 +565,196 @@
     </div>
   </nav>
 
-  <!-- ============================
-       MAIN
-       ============================ -->
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <!-- TODO: Profil fotoğrafını buraya koy. profile.jpg adıyla klasöre at, veya farklı bir isim verirsen src'yi güncelle. -->
-      <img src="profile.jpg" alt="Erhan Özgen" onerror="this.style.background='var(--accent-soft)'; this.alt='[Profil fotoğrafı buraya gelecek]'" />
+  <!-- ============ HERO ============ -->
+  <section id="home" class="hero">
+    <div class="blobs" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+    </div>
+
+    <div class="hero-grid">
       <div class="hero-text">
-        <!-- TODO: Ad-soyad ve başlığı düzelt -->
-        <h1>Erhan Özgen</h1>
-        <p class="title">Data Engineer</p>
-        <p class="location">İstanbul, Türkiye</p>
-        <!-- TODO: 1-2 cümlelik kısa tanıtım -->
-        <p>Apache Airflow, Spark ve büyük veri pipeline'larıyla çalışan bir veri mühendisiyim. Veri akışlarını ölçeklenebilir ve güvenilir hale getirmek üzerine yoğunlaşıyorum.</p>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>About</h2>
-      <!-- TODO: Kendinden bahset. Birkaç paragraf. -->
-      <p>X yıldır veri mühendisliği alanında çalışıyorum. Airflow tabanlı orchestration, Spark Structured Streaming ve büyük veri pipeline'larının üretim ortamına alınması konularında deneyimliyim.</p>
-      <p>İş dışında [hobiler, ilgi alanları — kitap, oyun, müzik, spor — buraya yaz]. Yeni teknolojileri öğrenmeyi ve karmaşık problemleri çözmeyi seviyorum.</p>
-    </section>
-
-    <!-- STACK -->
-    <section id="stack">
-      <h2>Stack</h2>
-      <!-- TODO: Kendi yeteneklerine göre düzenle. Kategori ekleyebilir/çıkarabilirsin. -->
-      <div class="stack-grid">
-        <div class="stack-card">
-          <h3>Languages</h3>
-          <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Scala</li>
-            <li>Bash</li>
-          </ul>
-        </div>
-
-        <div class="stack-card">
-          <h3>Big Data</h3>
-          <ul>
-            <li>Apache Airflow</li>
-            <li>Apache Spark</li>
-            <li>Kafka</li>
-            <li>Hive</li>
-          </ul>
-        </div>
-
-        <div class="stack-card">
-          <h3>Databases</h3>
-          <ul>
-            <li>PostgreSQL</li>
-            <li>MongoDB</li>
-            <li>Redis</li>
-          </ul>
-        </div>
-
-        <div class="stack-card">
-          <h3>Cloud & DevOps</h3>
-          <ul>
-            <li>AWS</li>
-            <li>GCP</li>
-            <li>Docker</li>
-            <li>Git</li>
-          </ul>
+        <p class="hero-greeting">Hi there 👋</p>
+        <!-- TODO: Update name/headline -->
+        <h1>I'm Erhan — a data engineer who also <em>plays guitar</em> and a lot of <em>chess</em>.</h1>
+        <p class="hero-tag">
+          I build data pipelines that actually run on Mondays. Off the clock, I write songs, lose at chess, and tinker with side projects.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="#beyond" class="btn btn-ghost">See what I do for fun ↓</a>
         </div>
       </div>
-    </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2>Experience</h2>
+      <div class="hero-photo-wrap">
+        <!-- TODO: Put profile.jpg into the folder (a portrait works best) -->
+        <img src="profile.jpg" alt="Erhan" onerror="this.style.background='var(--bg-soft)'; this.alt='Add profile.jpg'" />
+      </div>
+    </div>
+  </section>
 
-      <!-- TODO: Her tecrübeni böyle bir block ile ekle. En yenisi en üstte. -->
-      <div class="experience-item">
-        <div class="experience-header">
-          <div class="role-company">Data Engineer <span>· Bentego</span></div>
-          <div class="date">2023 — Bugün</div>
-        </div>
-        <p>Apache Airflow tabanlı veri pipeline'larının tasarımı ve geliştirilmesi. Spark Structured Streaming ile gerçek zamanlı veri işleme. DDS Simplification projesinde streaming alarm sistemlerinin yeniden yapılandırılması.</p>
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="s">
+    <p class="section-label">About</p>
+    <h2>A little about me</h2>
+    <div class="about-grid">
+      <!-- TODO: Personalize -->
+      <p>
+        I've been building data systems for the last few years — mostly with Apache Airflow, Spark, and a healthy amount of SQL. I like work where the problem is messy and the answer matters: production pipelines, streaming alarms, things that page someone at 3am if they break.
+      </p>
+      <p>
+        Outside of work I'm probably playing a song badly on the guitar, getting humbled at chess, or running my little music site. I care about doing things well — at the keyboard and away from it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="s">
+    <p class="section-label">Work</p>
+    <h2>Experience</h2>
+
+    <!-- TODO: Edit each block; add more as needed -->
+    <div class="exp-item">
+      <div class="exp-date">2023 — Now</div>
+      <div class="exp-content">
+        <h3>Data Engineer</h3>
+        <div class="company">Bentego</div>
+        <p>Designing and shipping Airflow-based pipelines and Spark Structured Streaming jobs. Most recently rebuilt the alarm system into a structured-streaming setup that's simpler to reason about and easier to extend.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2020 — 2023</div>
+      <div class="exp-content">
+        <h3>Previous Role</h3>
+        <div class="company">Previous Company</div>
+        <p>Two or three plain sentences about what you actually did here. What you built, what scale, what came out of it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section id="stack" class="s">
+    <p class="section-label">Stack</p>
+    <h2>Tools I reach for</h2>
+
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h3>Languages</h3>
+        <ul>
+          <li>Python</li>
+          <li>SQL</li>
+          <li>Scala</li>
+          <li>Bash</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h3>Data & Streaming</h3>
+        <ul>
+          <li>Apache Airflow</li>
+          <li>Apache Spark</li>
+          <li>Kafka</li>
+          <li>Hive</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h3>Databases</h3>
+        <ul>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+          <li>Redis</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h3>Cloud & DevOps</h3>
+        <ul>
+          <li>AWS</li>
+          <li>GCP</li>
+          <li>Docker</li>
+          <li>Git</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEYOND — hobbies ============ -->
+  <section id="beyond" class="s">
+    <p class="section-label">Beyond Work</p>
+    <h2>What I do when I'm not at the terminal</h2>
+
+    <div class="beyond-grid">
+      <div class="beyond-card c1">
+        <span class="beyond-icon">🎸</span>
+        <h3>Guitar</h3>
+        <p>I've been playing for years — mostly acoustic, occasionally loud. Practicing is the closest thing I have to meditation.</p>
       </div>
 
-      <div class="experience-item">
-        <div class="experience-header">
-          <div class="role-company">Önceki Pozisyon <span>· Önceki Şirket</span></div>
-          <div class="date">2020 — 2023</div>
-        </div>
-        <p>Bu pozisyonda neler yaptığını 2-3 cümle ile özetle. Hangi teknolojileri kullandın, hangi problemleri çözdün, ölçek nasıldı.</p>
+      <div class="beyond-card c2">
+        <span class="beyond-icon">🎵</span>
+        <h3>My music site</h3>
+        <p>A small corner of the web where I share what I'm working on.</p>
+        <!-- TODO: Replace # with your actual music site URL -->
+        <a href="#" target="_blank" rel="noopener">Visit the site →</a>
       </div>
-    </section>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <h2>Education</h2>
-
-      <!-- TODO: Eğitim bilgilerini gir -->
-      <div class="education-item">
-        <div>
-          <h3>Bilgisayar Mühendisliği, B.Sc.</h3>
-          <p style="color: var(--text-muted); font-size: 0.92rem;">[Üniversite Adı]</p>
-        </div>
-        <div class="date">2014 — 2018</div>
+      <div class="beyond-card c3">
+        <span class="beyond-icon">♞</span>
+        <h3>Chess</h3>
+        <p>Mostly bullet, occasionally rapid. Still working on not blundering my queen on move 10.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CERTIFICATIONS (opsiyonel — yoksa bu bölümü silebilirsin) -->
-    <section id="certifications">
-      <h2>Certifications</h2>
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="s">
+    <p class="section-label">Education</p>
+    <h2>Where I studied</h2>
 
-      <!-- TODO: Sertifikalarını ekle. Yoksa bu bütün <section>'ı silebilirsin. -->
-      <div class="cert-item">
-        <div>
-          <h3>Sertifika Adı</h3>
-          <p style="color: var(--text-muted); font-size: 0.92rem;">Veren Kurum · <a href="#" target="_blank" rel="noopener">Doğrulama Linki</a></p>
-        </div>
-        <div class="date">2024</div>
+    <!-- TODO: Update -->
+    <div class="edu-item">
+      <div>
+        <h3>B.Sc. in Computer Engineering</h3>
+        <div class="meta">[University Name]</div>
       </div>
-    </section>
+      <div class="date">2014 — 2018</div>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p style="margin-bottom: 16px;">Bana ulaşmak için en hızlı yol:</p>
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="s">
+    <div class="contact-card">
+      <p class="section-label">Contact</p>
+      <h2>Let's talk</h2>
+      <p>Open to interesting data problems, music collabs, or just a friendly chess match.</p>
 
-      <!-- TODO: Linkleri kendi adreslerinle değiştir -->
+      <!-- TODO: Replace LinkedIn / GitHub with your actual URLs -->
       <div class="contact-buttons">
-        <a href="mailto:erhan.ozgen@bentego.com">✉ Email</a>
-        <a href="https://www.linkedin.com/in/KULLANICIADIN" target="_blank" rel="noopener">in LinkedIn</a>
-        <a href="https://github.com/KULLANICIADIN" target="_blank" rel="noopener">⌘ GitHub</a>
+        <a href="mailto:erhan.ozgen@bentego.com" class="btn btn-primary">✉ Email</a>
+        <a href="https://www.linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://github.com/erhanozgen" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2026 Erhan Özgen · İstanbul'da kahve ile yazıldı ☕</p>
+    <p>© 2026 Erhan Özgen · Built with coffee, a bit of guitar in the background ☕🎸</p>
   </footer>
 
-  <!-- ============================
-       JAVASCRIPT
-       ============================ -->
+  <!-- ============ JS ============ -->
   <script>
-    // Theme toggle
-    (function() {
+    // Theme toggle — defaults to LIGHT unless user previously chose dark
+    (function () {
       const toggle = document.getElementById('themeToggle');
       const icon = document.getElementById('themeIcon');
       const root = document.documentElement;
 
-      // İlk yüklemede: localStorage > sistem tercihi > light
+      // Default: light. Only honor saved preference if user explicitly toggled.
       const saved = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial = saved || (systemDark ? 'dark' : 'light');
+      if (saved === 'dark') applyTheme('dark');
+      else applyTheme('light');
 
-      applyTheme(initial);
-
-      toggle.addEventListener('click', function() {
+      toggle.addEventListener('click', function () {
         const current = root.getAttribute('data-theme') || 'light';
         const next = current === 'dark' ? 'light' : 'dark';
         applyTheme(next);
