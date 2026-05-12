@@ -352,15 +352,6 @@
       margin-bottom: 18px;
       color: var(--text-soft);
     }
-    .about-content p:first-of-type::first-letter {
-      font-family: 'Fraunces', serif;
-      font-size: 3.4rem;
-      font-weight: 600;
-      float: left;
-      line-height: 0.9;
-      padding: 8px 14px 0 0;
-      color: var(--accent);
-    }
 
     /* Stack */
     .stack-grid {
@@ -424,6 +415,36 @@
       margin-bottom: 10px;
     }
     .exp-content p { font-size: 0.96rem; }
+    .exp-content .project-heading {
+      margin-top: 14px;
+      margin-bottom: 0;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .exp-content .project-list {
+      margin: 8px 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .exp-content .project-list li {
+      position: relative;
+      padding: 6px 0 6px 18px;
+      font-size: 0.94rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+    .exp-content .project-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      color: var(--accent);
+    }
+    .exp-content .project-list li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
 
     /* Beyond — hobbies */
     .beyond-grid {
@@ -653,11 +674,28 @@
     <h2>Experience</h2>
 
     <div class="exp-item">
+      <div class="exp-date">Dec 2020 — Now</div>
+      <div class="exp-content">
+        <h3>Senior Big Data Engineer</h3>
+        <div class="company">Bentego A.Ş.</div>
+        <p>Working through Bentego as a big data consultant since late 2020 — currently embedded with Vodafone, previously with Türk Telekom. Engagement-level breakdowns below.</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
       <div class="exp-date">Feb 2024 — Now</div>
       <div class="exp-content">
-        <h3>Big Data Engineer (Consultant)</h3>
+        <h3>Senior Big Data Engineer (Consultant)</h3>
         <div class="company">Bentego · Vodafone</div>
-        <p>Working on the network-analytics data platform — designing and maintaining streaming pipelines built on Spark Structured Streaming and Kafka, alongside batch ETL/ELT jobs that feed the wider analytics surface. Most recently rebuilt the alarm system into a Structured Streaming setup that's simpler to reason about and faster to extend. Day-to-day mixes new pipeline development, performance tuning across memory and throughput, and the Airflow orchestration that holds the platform together. Also involved in migration work and test-environment setup as the stack moves onto newer Hadoop infrastructure.</p>
+        <p>Working on the network-analytics data platform — designing and maintaining streaming pipelines on Spark Structured Streaming and Kafka, plus batch ETL/ELT jobs that feed the wider analytics surface. Day-to-day mixes new pipeline development, performance tuning, the Airflow orchestration that holds the platform together, and helping out with test-environment setup.</p>
+        <p class="project-heading">Selected projects:</p>
+        <ul class="project-list">
+          <li><strong>DDS (Digital Data Store)</strong> — Active streaming platform handling the data flow for all Vodafone customers (prepaid, postpaid, individual, corporate). Built on Continuous Airflow.</li>
+          <li><strong>Polaris</strong> — Source database upgrade from Kenan to Vibe. Owned the work end-to-end (analysis → design → development → babysitting), adapting affected DAGs and scripts to column changes and shifts in how data is ingested.</li>
+          <li><strong>MCCM Source Redesign</strong> — Near-real-time delivery of postpaid customer details (GSM, customer ID, tariff, product info) to the business unit.</li>
+          <li><strong>Siebel Upgrade</strong> — Source database upgrade (IP15 → IP25) for prepaid customers. Analyzed downstream impact of table and column changes; rollout still in progress.</li>
+          <li><strong>Lakehouse Upgrade</strong> — Adapting workloads to the new environment as part of the platform transition. Learning the new tooling and converting jobs to Spark 3.</li>
+        </ul>
       </div>
     </div>
 
@@ -667,6 +705,12 @@
         <h3>Software Developer (Consultant)</h3>
         <div class="company">Bentego · Türk Telekom</div>
         <p>Worked on Complex Event Processing with EVAM — ingesting events from Kafka, RabbitMQ, GoldenGate, and HTTP/SQL listeners, then enriching them with reference data to power real-time reports, SMS push, and downstream web-service triggers. On the side I built ETL/ELT pipelines, ran UC4 orchestration, wrote Java and Bash tooling, and stepped in as Scrum Master for the team.</p>
+        <p class="project-heading">Selected work:</p>
+        <ul class="project-list">
+          <li><strong>EVAM 4 → 5 upgrade</strong> — Migrated the existing CEP setup to a new major version. First project I owned end-to-end.</li>
+          <li><strong>EVAM 5 → 6.1 upgrade</strong> — Second major version jump for the same platform.</li>
+          <li><strong>DevOps duties</strong> — Application restarts, log monitoring, on-call rotations, overnight deployments. Also handled SSL certificate setup for the web services.</li>
+        </ul>
       </div>
     </div>
 
@@ -730,6 +774,7 @@
         <h3>Orchestration & Tools</h3>
         <ul>
           <li>Apache Airflow</li>
+          <li>Continuous Airflow</li>
           <li>UC4</li>
           <li>Linux</li>
           <li>Git</li>
